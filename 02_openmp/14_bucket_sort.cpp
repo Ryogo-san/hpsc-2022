@@ -36,7 +36,7 @@ int main() {
 #pragma omp parallel for
   for (int i=0; i<range; i++) {
     int j = offset[i];
-#pragma omp parallel for shared(j)
+#pragma omp parallel for shared(i,j)
     for (int k=bucket[i]; k>0; k--) {
       key[j] = i;
 #pragma omp atomic update

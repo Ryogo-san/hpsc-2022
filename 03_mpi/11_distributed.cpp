@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
     //MPI_Send(jbody, N/size, MPI_BODY, send_to, 0, MPI_COMM_WORLD);
     //MPI_Recv(jbody, N/size, MPI_BODY, recv_from, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     
-    // 
+    // for send
     for(int i=0;i<N/size;i++) tmp[i]=jbody[i];
     MPI_Win_fence(0, win);
     MPI_Put(tmp, N/size, MPI_BODY, send_to, 0, N/size, MPI_BODY, win);
